@@ -8,7 +8,8 @@
  * contato: anzak.h.sanders@gmail.com
  *
  * criado em: 01/07/2021
- *  
+ * 
+ * ultima modificação: 14/07/2021
  */
 
 #include <sys/stat.h>
@@ -37,18 +38,25 @@ int main ( )
 	unsigned long actualDate = getCurrentDays ( );
 	int limitDay = 60;				// data limite em dias
 
-	while (! dirs.empty ( ) )
+	while (! dirs.empty ( ) )	
 	{
 		string filePath = path + dirs.back ( );
 		dates = getFileData ( filePath );
 		dirs.pop_back ( );
 		int diff = diffDates ( dates, actualDate );
-		
-		cout << filePath << " ultima mod " << diff << endl;
+
 		if ( diff >= limitDay )
 		{
-			cout << "O arquivo " << filePath << " Foi deletado após " << diff << " dias." << endl;
+			cout << "O arquivo " << filePath << " Foi deletado após " << diff << " dias. \n" << endl;
 			deleteOutdatedDirs ( filePath );
+		}
+		else if ( diff == (limitDay - 3))
+		{
+			cout << "O arquivo " << filePath << " Sera deletado em 3 dias. \n" << endl; 
+		}
+		else
+		{	
+			cout << "O arquivo " << filePath << " Não foi deletado pois ainda faltam " << 60 - diff << " dias. \n" << endl;
 		}
 	}
 
@@ -197,9 +205,9 @@ void deleteOutdatedDirs ( string path )
 	 * quando o mesmo passar da data limite
 	 * 
 	 */
-/*
+
 	DIR *dir = opendir ( path.c_str ( ) );
-	string command = "rm -rvf '" + path + "'";
+	string command = "/bin/rm -rvf '" + path + "'";
 	
-	system ( command.c_str ( ) );*/
+	system ( command.c_str ( ) );
 }
