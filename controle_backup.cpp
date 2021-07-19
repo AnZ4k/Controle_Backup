@@ -31,18 +31,18 @@ void deleteOutdatedDirs ( string path );
 
 int main ( )
 {
-	vector<string> paths = {"/backups", "/share/backup-vm"};
+	vector<string> paths = { "/backups", "/share/backup-vm" };
 	
-	while ( ! paths.empty() )
+	while ( ! paths.empty ( ) )
 	{
-		vector<string> dirs = listDirs ( paths.back() );
+		vector<string> dirs = listDirs ( paths.back( ) );
 		vector<int> dates;
 		unsigned long actualDate = getCurrentDays ( );
 		int limitDay = 60;				// data limite em dias
 
-		while (! dirs.empty ( ) )	
+		while ( ! dirs.empty ( ) )	
 		{
-			string filePath = paths.back() + dirs.back ( );
+			string filePath = paths.back ( ) + dirs.back ( );
 			dates = getFileData ( filePath );
 			dirs.pop_back ( );
 			int diff = diffDates ( dates, actualDate );
@@ -52,7 +52,7 @@ int main ( )
 				cout << "O arquivo " << filePath << " Foi deletado após " << diff << " dias. \n" << endl;
 				deleteOutdatedDirs ( filePath );
 			}
-			else if ( diff == (limitDay - 3))
+			else if ( diff == ( limitDay - 3 ) )
 			{
 				cout << "O arquivo " << filePath << " Sera deletado em 3 dias. \n" << endl; 
 			}
@@ -61,7 +61,7 @@ int main ( )
 				cout << "O arquivo " << filePath << " Não foi deletado pois ainda faltam " << 60 - diff << " dias. \n" << endl;
 			}
 		}
-		paths.pop_back();
+		paths.pop_back ( );
 	}
 
 	return 0;
@@ -101,7 +101,7 @@ vector<string> listDirs ( string path )
 	struct dirent *input = 0;
 	vector<string> dirs;
 
-	dir = opendir ( path.c_str () );
+	dir = opendir ( path.c_str ( ) );
 
 	if ( dir == 0 )
 	{
