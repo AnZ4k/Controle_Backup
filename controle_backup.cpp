@@ -9,7 +9,6 @@
  *
  * criado em: 01/07/2021
  * 
- * ultima modificação: 14/07/2021
  */
 
 #include <sys/stat.h>
@@ -32,32 +31,37 @@ void deleteOutdatedDirs ( string path );
 
 int main ( )
 {
-	string path = "/backups/";			// diretorio onde os backups estão
-	vector<string> dirs = listDirs ( path );
-	vector<int> dates;
-	unsigned long actualDate = getCurrentDays ( );
-	int limitDay = 60;				// data limite em dias
-
-	while (! dirs.empty ( ) )	
+	vector<string> paths = {"/backups", "/share/backup-vm"};
+	
+	while ( ! paths.empty() )
 	{
-		string filePath = path + dirs.back ( );
-		dates = getFileData ( filePath );
-		dirs.pop_back ( );
-		int diff = diffDates ( dates, actualDate );
+		vector<string> dirs = listDirs ( paths.back() );
+		vector<int> dates;
+		unsigned long actualDate = getCurrentDays ( );
+		int limitDay = 60;				// data limite em dias
 
-		if ( diff >= limitDay )
+		while (! dirs.empty ( ) )	
 		{
-			cout << "O arquivo " << filePath << " Foi deletado após " << diff << " dias. \n" << endl;
-			deleteOutdatedDirs ( filePath );
+			string filePath = paths.back() + dirs.back ( );
+			dates = getFileData ( filePath );
+			dirs.pop_back ( );
+			int diff = diffDates ( dates, actualDate );
+
+			if ( diff >= limitDay )
+			{
+				cout << "O arquivo " << filePath << " Foi deletado após " << diff << " dias. \n" << endl;
+				deleteOutdatedDirs ( filePath );
+			}
+			else if ( diff == (limitDay - 3))
+			{
+				cout << "O arquivo " << filePath << " Sera deletado em 3 dias. \n" << endl; 
+			}
+			else
+			{	
+				cout << "O arquivo " << filePath << " Não foi deletado pois ainda faltam " << 60 - diff << " dias. \n" << endl;
+			}
 		}
-		else if ( diff == (limitDay - 3))
-		{
-			cout << "O arquivo " << filePath << " Sera deletado em 3 dias. \n" << endl; 
-		}
-		else
-		{	
-			cout << "O arquivo " << filePath << " Não foi deletado pois ainda faltam " << 60 - diff << " dias. \n" << endl;
-		}
+		paths.pop_back();
 	}
 
 	return 0;
