@@ -1,6 +1,6 @@
 #include "tFile.h"
 
-std::vector<int> tFile::getFileData(std::string path)
+std::vector<int> tFile::getFileData ( std::string path )
 {
     /*
 	 * Função responsavel por coletar informações do arquivo

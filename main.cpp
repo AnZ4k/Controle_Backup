@@ -18,7 +18,7 @@
 #include "core/tSystem.h"
 
 // functions prototipe
-std::string generatePath ( char argc );
+std::string generatePath ( char *arg );
 void run ( int *argc, char ** arglist );
 
 //public declarations
@@ -41,7 +41,7 @@ int main ( int argc, char **argv)
     return 0;
 }
 
-std::string generatePath ( char argc )
+std::string generatePath ( char *arg )
 {
     return " ";
 }
@@ -52,8 +52,8 @@ void run ( int *argc, char ** arglist )
     std::vector<std::string> paths;
     for ( int i = 1; i < *argc; i++ )
     {
-        if ( ts.validate ( generatePath ( argc[i] ) ) )
-            paths.push_back ( generatePath ( argc[i] ) );
+        if ( ts.validate ( generatePath ( arglist[i] ) ) )
+            paths.push_back ( generatePath ( arglist[i] ) );
         else
         {
             std::cerr << "O caminho " << argc[i] << " não é valido!" << std::endl;

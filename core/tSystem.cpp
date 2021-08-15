@@ -1,6 +1,6 @@
 #include "tSystem.h"
 
-bool tSystem::leapYear(int year)
+bool tSystem::leapYear ( int year )
 {
 	/*
 	 * Função responsvel por detectar se o ano é bissexto
@@ -20,7 +20,7 @@ bool tSystem::leapYear(int year)
 }
 
 
-std::vector<std::string> tSystem::tList(std::string path)
+std::vector<std::string> tSystem::tList ( std::string path )
 {
     /*
 	 * Função responsavel por listar o conteudo do diretorio de backup
@@ -41,7 +41,7 @@ std::vector<std::string> tSystem::tList(std::string path)
 		exit ( 1 );
 	}
 
-	while ( input = readdir( dir ) )
+	while ( ( input = readdir( dir ) ) )
 	{
 		dirs.push_back ( input->d_name );
 	}
@@ -50,7 +50,7 @@ std::vector<std::string> tSystem::tList(std::string path)
 	return dirs;
 }
 
-void tSystem::tDelete(std::string path)
+void tSystem::tDelete ( std::string path )
 {
     /*
 	 * Função responsavel por deletar o arquivo ou diretorio
@@ -64,7 +64,7 @@ void tSystem::tDelete(std::string path)
 	system ( command.c_str ( ) );
 }
 
-unsigned long tSystem::getCurrentDays()
+unsigned long tSystem::getCurrentDays ( )
 {
 	/*
 	 * Função responsavel por retornar a quantidade de dias desde o ano 2000 até a data atual
@@ -94,7 +94,7 @@ unsigned long tSystem::getCurrentDays()
 	return returnDays;
 }
 
-int tSystem::diffDates(std::vector<int> fdate, unsigned long systemDays)
+int tSystem::diffDates ( std::vector<int> fdate, unsigned long systemDays )
 {
     /*
 	 * Função responsavel por retornar a diferença em dias entre a data do sistema
@@ -120,8 +120,11 @@ int tSystem::diffDates(std::vector<int> fdate, unsigned long systemDays)
 	return systemDays - days;
 }
 
-bool tSystem::validate(std::string path)
+bool tSystem::validate ( std::string path )
 {
+    //struct stat buffer;
+    //return ( stat ( path.c_str( ), &buffer ) == 0 );
+
     return true;
 }
 
