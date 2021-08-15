@@ -22,7 +22,7 @@ bool tSystem::leapYear ( int year )
 
 std::vector<std::string> tSystem::tList ( std::string path )
 {
-    /*
+	/*
 	 * Função responsavel por listar o conteudo do diretorio de backup
 	 * e retornar um vector contendo o nome de todos os arquivos e
 	 * diretorios
@@ -32,8 +32,8 @@ std::vector<std::string> tSystem::tList ( std::string path )
 	DIR *dir = 0;
 	struct dirent *input = 0;
 	std::vector<std::string> dirs;
-    char tmp[3] = "..";
-    char tmp2[2] = ".";
+	char tmp[3] = "..";
+	char tmp2[2] = ".";
 
 	dir = opendir ( path.c_str ( ) );
 
@@ -45,8 +45,8 @@ std::vector<std::string> tSystem::tList ( std::string path )
 
 	while ( ( input = readdir( dir ) ) )
 	{
-        if ( strcmp ( input->d_name, tmp ) && strcmp ( tmp2, input->d_name ) )
-            dirs.push_back ( input->d_name );
+	if ( strcmp ( input->d_name, tmp ) && strcmp ( tmp2, input->d_name ) )
+	    dirs.push_back ( input->d_name );
 	}
 	closedir ( dir );
 
