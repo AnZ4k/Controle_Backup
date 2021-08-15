@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(controle_cpp)
+project(tkv_controle)
 
 add_executable(tkv_controle main.cpp ./core/tFile.cpp ./core/tSystem.cpp)
 
