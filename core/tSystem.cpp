@@ -122,9 +122,7 @@ int tSystem::diffDates ( std::vector<int> fdate, unsigned long systemDays )
 
 bool tSystem::validate ( std::string path )
 {
-    //struct stat buffer;
-    //return ( stat ( path.c_str( ), &buffer ) == 0 );
-
-    return true;
+    struct stat buffer;
+    return ( stat ( path.c_str( ), &buffer ) == 0 );
 }
 
