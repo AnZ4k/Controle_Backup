@@ -1,7 +1,11 @@
 # TKV Controle
 Ferramenta remover automaticamente arquivos / diretorios após N dias
 
-## insequisitos compilação
+# Requisitos do sistema
+  * sistema operacional Linux
+  * permissão de super-usuario
+
+## Instalando requisitos para a compilação
 `apt install build-essential make cmake`
 
 # Instruções de compilação
@@ -15,7 +19,7 @@ após isso compile o projeto <br>
 # Guia de execução
 para executar basta rodar <br>
 `./tkv_controle -p <path> -d <dlim>` <br>
-onde "<path>" é o/os diretorios a serem controlados e <dlim> é o tempo limite em dias <br>
+onde `<path>` é o/os diretorios a serem controlados e `<dlim>` é o tempo limite em dias <br>
 exemplo<br>
 `./tkv_controle -p /home/foo /home/bar -d 5`<br>
 o comando acima controla o diretorio "/home/foo e /home/bar" removendo deles arquivos que ja estão lá
