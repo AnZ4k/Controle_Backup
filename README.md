@@ -28,6 +28,6 @@ o comando acima controla o diretorio "/home/foo e /home/bar" removendo deles arq
 # Recomendações
 para facilitar as coisas você pode adicionar o programa ao cron.
 a sintaxe recomendada é <br>
-`30  *	* * *	root 	/scripts/tkv_controle > /var/log/tkv-controle.log` <br>
+`30  *	* * *	root 	/scripts/tkv_controle ... > /var/log/tkv-controle.log` <br>
 
 ## NÂO É RECOMENDADO O USO DE PATH RELATIVO
