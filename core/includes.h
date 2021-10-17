@@ -1,5 +1,5 @@
-#IFNDEF TKINCLUDES
-#DEFINE TKINCLUDES
+#ifndef TKINCLUDES
+#define TKINCLUDES
 
 #include <time.h>
 #include <vector>
@@ -11,4 +11,4 @@
 #include <sstream>
 #include <errno.h>
 #include <limits.h>
-#ENDIF
+#endif
