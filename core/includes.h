@@ -1,4 +1,5 @@
-#pragma once
+#IFNDEF TKINCLUDES
+#DEFINE TKINCLUDES
 
 #include <time.h>
 #include <vector>
@@ -10,3 +11,4 @@
 #include <sstream>
 #include <errno.h>
 #include <limits.h>
+#ENDIF
