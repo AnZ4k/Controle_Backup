@@ -1,5 +1,5 @@
-#IFNDEF TKSYSTEM
-#DEFINE TKSYSTEM
+#ifndef TKSYSTEM
+#define TKSYSTEM
 #include "includes.h"
 
 class tSystem
@@ -14,4 +14,4 @@ public:
 private:
     bool leapYear ( int year );
 };
-#ENDIF
+#endif
