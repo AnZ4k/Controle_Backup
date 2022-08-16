@@ -3,7 +3,6 @@ Ferramenta remover automaticamente arquivos / diretorios após N dias
 
 # Requisitos do sistema
   * sistema operacional Linux
-  * permissão de super-usuario
 
 ## Instalando requisitos para a compilação
 `apt install build-essential make cmake`
